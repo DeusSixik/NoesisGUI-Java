@@ -25,4 +25,19 @@ extern "C" {
         delete getComponent(env, ptr);
     }
 
+    JNIEXPORT void JNICALL
+    Java_dev_sixik_noesisgui_nscore_NSBaseComponent_nativeDestroy(JNIEnv* env, jobject thiz) {
+        jclass cls = env->GetObjectClass(thiz);
+        jfieldID ptrField = env->GetFieldID(cls, "ptr", "J");
+
+        jlong ptrVal = env->GetLongField(thiz, ptrField);
+        auto* comp = reinterpret_cast<Noesis::BaseComponent*>(ptrVal);
+
+        if (comp != nullptr) {
+            comp->Release();
+            env->SetLongField(thiz, ptrField, 0);
+        }
+
+        env->DeleteLocalRef(cls);
+    }
 }

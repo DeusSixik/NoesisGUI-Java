@@ -4,6 +4,10 @@ import dev.sixik.noesisgui.nsmath.NSVector2;
 
 public final class NSPoint extends NSVector2 {
 
+    public NSPoint() {
+        this(0);
+    }
+
     public NSPoint(float values) {
         super(values);
     }

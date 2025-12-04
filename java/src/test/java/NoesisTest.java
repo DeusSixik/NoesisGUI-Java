@@ -1,5 +1,9 @@
+import dev.sixik.noesisgui.NoesisGui;
+import dev.sixik.noesisgui.nscore.NSInterface;
 import dev.sixik.noesisgui.nscore.NSSymbol;
 import dev.sixik.noesisgui.nscore.NSType;
+import dev.sixik.noesisgui.nsgui.NSIRenderer;
+import dev.sixik.noesisgui.nsgui.NSVisual;
 import dev.sixik.noesisgui.nsdrawing.NSColor;
 import dev.sixik.noesisgui.nsdrawing.NSCornerRadius;
 import dev.sixik.noesisgui_ini.NoesisGuiJava;
@@ -74,6 +78,17 @@ public class NoesisTest {
             System.out.println(type.getTypeId());
         }
         end();
+        space();
+        start("NsVisual");
+
+        NSIRenderer renderer = new NSIRenderer(1);
+        renderer.render();
+
+//        NSVisual visual = new NSVisual(1);
+//        visual.getView();
+
+//        NoesisGui.parseXaml("someCod").
+
 
     }
 

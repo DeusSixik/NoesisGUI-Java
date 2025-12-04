@@ -16,7 +16,7 @@ public class NSSymbol extends PtrObject implements AutoCloseable {
         this(nativeCreateByName(name));
     }
 
-    private NSSymbol(long ptr) {
+    public NSSymbol(long ptr) {
         super(ptr);
     }
 

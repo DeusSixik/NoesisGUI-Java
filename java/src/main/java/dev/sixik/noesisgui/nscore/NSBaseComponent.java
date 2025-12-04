@@ -1,21 +1,18 @@
 package dev.sixik.noesisgui.nscore;
 
-import dev.sixik.noesisgui.utils.PtrObject;
-
-public abstract class NSBaseComponent extends PtrObject implements AutoCloseable{
+public class NSBaseComponent extends NSBaseRefCounted {
 
     public NSBaseComponent(long ptr) {
         super(ptr);
     }
 
-    @Override
-    public void close() {
-        final var ptr = getPtr();
-        if(ptr != 0) {
-            nativeFree(ptr);
-            ptrClear();
-        }
+    /**
+     * Deletes an object from memory. Call it only if you have created this object and NoesisGui
+     * does not have the ability to manage the object.
+     */
+    public final void destroy() {
+        nativeDestroy();
     }
 
-    private static native void nativeFree(long ptr);
+    private native void nativeDestroy();
 }

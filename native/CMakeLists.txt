@@ -26,6 +26,7 @@ endif()
 # Пути к JNI и Noesis headers
 include_directories(
         ${NOESIS_SDK_DIR}/Include
+        ${NOESIS_SDK_DIR}/Packages
         ${JAVA_HOME}/include
 )
 
@@ -49,11 +50,22 @@ add_library(noesis_jni SHARED
         src/utils/NSJniUtils.h
         src/NsCore/NsSymbolJni.cpp
         src/NsCore/NsTypeJni.cpp
-        src/NsCore/NsDispatcherObjectJni.cpp
-        src/NsCore/NSIViewJni.cpp
         src/NsCore/NsBaseComponentJni.cpp
         src/NsRender/NsRenderTargetJni.cpp
         src/NsRender/NsRenderDeviceJni.cpp
+        src/Debug/NSDebugCpp.cpp
+        src/NsApp/NsXamlProviderJni.cpp
+        src/NsCore/NsStreamJni.cpp
+        src/NsCore/NsDispatcherObjectJni.cpp
+        src/NsCore/NsBaseObjectJni.cpp
+        src/NsCore/NsBaseRefCountedJni.cpp
+        src/NsCore/NsDependencyPropertyJni.cpp
+        src/NsGui/NsVisualJni.cpp
+        src/NsGui/NsUIElementJni.cpp
+        src/NSNoesisGuiJni.cpp
+        src/NsCore/NsInterfaceJni.cpp
+        src/NsGui/NsIRendererJni.cpp
+        src/NsGui/NSIViewJni.cpp
 )
 
 # Линкуемся по .lib

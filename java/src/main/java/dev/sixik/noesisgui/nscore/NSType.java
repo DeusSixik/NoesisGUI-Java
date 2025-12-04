@@ -16,7 +16,7 @@ public class NSType extends PtrObject implements AutoCloseable {
         this(nativeCreate(symbol));
     }
 
-    private NSType(long ptr) {
+    public NSType(long ptr) {
         super(ptr);
     }
 

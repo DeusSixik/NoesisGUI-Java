@@ -26,7 +26,7 @@ template<class T> class Ptr;
 class XamlProvider: public BaseComponent
 {
 public:
-    /// Loads XAML from the specified URI. Returns null when xaml is not found
+        /// Loads XAML from the specified URI. Returns null when xaml is not found
     virtual Ptr<Stream> LoadXaml(const Uri& uri) = 0;
 
     /// Delegate to notify changes to the XAML file text
