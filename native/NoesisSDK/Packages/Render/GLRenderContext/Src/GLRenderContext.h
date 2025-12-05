@@ -10,7 +10,7 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/Ptr.h>
-#include <NsRender/RenderContext.h>
+#include <Render/RenderContext/Include/NsRender/RenderContext.h>
 
 #include "GLHeaders.h"
 

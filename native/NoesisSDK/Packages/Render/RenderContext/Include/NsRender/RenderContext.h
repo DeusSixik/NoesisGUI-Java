@@ -11,7 +11,7 @@
 #include <NsCore/Noesis.h>
 #include <NsCore/BaseComponent.h>
 #include <NsCore/ArrayRef.h>
-#include <NsRender/RenderContextApi.h>
+#include <Render/RenderContext/Include/NsRender/RenderContextApi.h>
 
 
 namespace Noesis

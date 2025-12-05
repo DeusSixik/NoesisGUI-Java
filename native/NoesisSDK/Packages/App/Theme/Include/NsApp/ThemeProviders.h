@@ -9,7 +9,7 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsApp/ThemeApi.h>
+#include <App/Theme/Include/NsApp/ThemeApi.h>
 
 
 namespace Noesis

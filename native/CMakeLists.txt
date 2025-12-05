@@ -66,6 +66,15 @@ add_library(noesis_jni SHARED
         src/NsCore/NsInterfaceJni.cpp
         src/NsGui/NsIRendererJni.cpp
         src/NsGui/NSIViewJni.cpp
+        src/Render/NsRenderContextJni.cpp
+        src/Render/NsGLJni.cpp
+        src/NsApp/NsThemeJni.cpp
+        src/NsGui/NsFrameworkElementJni.cpp
+        src/jni.cpp
+        src/events/NsWidgetEvents.h
+        src/jni.h
+        src/NsCore/NsRoutedEventJni.cpp
+        src/events/NsButtonEventJni.cpp
 )
 
 # Линкуемся по .lib

@@ -36,7 +36,7 @@ public class NoesisGuiJava {
             // потом – наш noesis_jni.dll
             System.load(tempDir.resolve("Noesis.dll").toString());
             // если есть ещё зависимости:
-            // System.load(tempDir.resolve("NoesisApp.dll").toString());
+             System.load(tempDir.resolve("NoesisApp.dll").toString());
 
             System.load(tempDir.resolve("noesis_jni.dll").toString());
 

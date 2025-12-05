@@ -9,7 +9,7 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsRender/GLRenderDeviceApi.h>
+#include <Render/GLRenderDevice/Include/NsRender//GLRenderDeviceApi.h>
 #include <NsRender/RenderDevice.h>
 
 

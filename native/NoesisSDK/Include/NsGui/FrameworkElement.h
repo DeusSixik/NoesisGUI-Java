@@ -295,7 +295,7 @@ public:
 
     /// Gets or sets a graphics transformation that should apply to this element when layout is 
     /// performed
-    //@{
+    // @{
     Transform* GetLayoutTransform() const;
     void SetLayoutTransform(Transform* transform);
     //@}

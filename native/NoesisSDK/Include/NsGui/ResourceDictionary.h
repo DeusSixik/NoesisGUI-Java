@@ -12,7 +12,6 @@
 #include <NsCore/HashMap.h>
 #include <NsGui/CoreApi.h>
 #include <NsGui/BaseDictionary.h>
-#include <NsGui/INameScope.h>
 #include <NsGui/IUITreeNode.h>
 #include <NsGui/Uri.h>
 

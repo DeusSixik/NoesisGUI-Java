@@ -6,6 +6,7 @@
 #include <jni_md.h>
 
 #include "NsCore/Type.h"
+#include "NsCore/TypeClass.h"
 
 extern "C" {
 JNIEXPORT jlong JNICALL
@@ -33,6 +34,13 @@ Java_dev_sixik_noesisgui_nscore_NSType_nativeGetTypeId(JNIEnv *env, jclass, jlon
     const Noesis::Type *type = reinterpret_cast<Noesis::Type *>(ptr);
     if (!type) return nullptr;
     return env->NewStringUTF(type->GetName());
+}
+
+JNIEXPORT jstring JNICALL
+Java_dev_sixik_noesisgui_nscore_NSType_nativeGetClassTypeName(JNIEnv *env, jclass, jlong ptr) {
+    const Noesis::Type *type = reinterpret_cast<Noesis::Type *>(ptr);
+    if (!type) return nullptr;
+    return env->NewStringUTF(type->GetClassType()->GetName());
 }
 
 JNIEXPORT void JNICALL

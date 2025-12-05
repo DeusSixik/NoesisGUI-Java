@@ -24,6 +24,10 @@ public class NSType extends PtrObject implements AutoCloseable {
         return nativeGetTypeId(getPtr());
     }
 
+    public final String getClassTypeName() {
+        return nativeGetClassTypeName(getPtr());
+    }
+
     @Override
     public void close() {
         final var ptr = getPtr();
@@ -38,4 +42,6 @@ public class NSType extends PtrObject implements AutoCloseable {
     private static native void nativeFree(long ptr);
 
     private static native String nativeGetTypeId(long ptr);
+
+    private static native String nativeGetClassTypeName(long ptr);
 }

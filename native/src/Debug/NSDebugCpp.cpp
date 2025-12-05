@@ -2,12 +2,22 @@
 // Created by Sixik on 04.12.2025.
 //
 
-#include <App/ApplicationLauncher/Include/NsApp/ApplicationLauncher.h>
+#include <jni.h>
+#include <jni_md.h>
 
-#include "NsGui/DependencyProperty.h"
-#include "NsGui/Grid.h"
+#include "Render/GLRenderDevice/Include/NsRender/GLFactory.h"
+#include <App/Theme/Include/NsApp/ThemeApi.h>
+#include <App/Theme/Include/NsApp/ThemeProviders.h>
+
 #include "NsGui/IntegrationAPI.h"
+#include <NsGui/ResourceDictionary.h>
+
+#include "NsGui/FrameworkElement.h"
 
 void test() {
 
+    // Noesis::GUI::LoadApplicationResources()
+
+
 }
+
