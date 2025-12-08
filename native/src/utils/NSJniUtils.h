@@ -29,6 +29,7 @@ namespace Noesis {
 
 class NSJniUtils {
 public:
+
     static void Int32RectToCopy(JNIEnv *env, Noesis::Int32Rect &src, const jobject dst) {
         const jclass cls = env->GetObjectClass(dst);
         const jfieldID xField = env->GetFieldID(cls, "x", "I");

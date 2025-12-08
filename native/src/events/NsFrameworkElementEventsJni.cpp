@@ -25,6 +25,7 @@ struct JniEnvScope {
     }
 
     ~JniEnvScope() {
+        if (attached) NoesisJava::g_vm->DetachCurrentThread();
     }
 
     operator JNIEnv*() const { return env; }
