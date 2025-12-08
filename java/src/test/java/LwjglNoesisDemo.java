@@ -157,7 +157,7 @@ public final class LwjglNoesisDemo {
             System.out.println("[NOESIS] " + file + ":" + line + " [" + NoesisGui.getLogLevelName((int) level) + "] " + channel + " - " + message);
         }));
 
-        NoesisGui.setLicense("GlobexCorporation", "0KrZJjrt2SYwlUcIzZMGor47iaWruwED83qFJSQR9QXgAKqQ");
+//        NoesisGui.setLicense("GlobexCorporation", "0KrZJjrt2SYwlUcIzZMGor47iaWruwED83qFJSQR9QXgAKqQ");
 
         NoesisGui.init();
 
@@ -173,7 +173,7 @@ public final class LwjglNoesisDemo {
     <!-- Главное меню -->
     <Grid x:Name="MainMenuRoot">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="PlayButton" Content="Play" Width="200" Margin="0,0,0,10"/>
+            <Button x:Name="PlayButton" ToolTip="Окно настроек" Content="Play" Width="200" Margin="0,0,0,10"/>
             <Button x:Name="SettingsButton" Content="Settings" Width="200" Margin="0,0,0,10"/>
             <Button x:Name="ExitButton" Content="Exit" Width="200"/>
         </StackPanel>
@@ -210,6 +210,9 @@ public final class LwjglNoesisDemo {
         mainMenu.setVisibility(NSGui_Visibility.Visible);
         settings.setVisibility(NSGui_Visibility.Hidden);
 
+        NSFrameworkElement playButton = mainMenu.findName("SettingsButton");
+        playButton.setTooltip("Запустить игру");
+
         NSEventHandlerManager.subscribe(_view, "SettingsButton", (args) -> {
             mainMenu.setVisibility(NSGui_Visibility.Hidden);
             settings.setVisibility(NSGui_Visibility.Visible);
@@ -223,6 +226,58 @@ public final class LwjglNoesisDemo {
         NSEventHandlerManager.subscribe(_view, "ExitButton", (arg) -> {
             root.setVisibility(NSGui_Visibility.Hidden);
         });
+
+        mainMenu.contextMenuClosingEvent((obj, eventArgs) -> {
+            System.out.println(eventArgs.cursorLeft);
+        });
+
+        mainMenu.contextMenuOpeningEvent((obj, eventArgs) -> {
+            System.out.println("Open: " + eventArgs.cursorTop);
+        });
+
+        mainMenu.contextMenuClosingEvent((obj, eventArgs) -> {
+            System.out.println("Close: " + eventArgs.cursorTop);
+        });
+
+        mainMenu.loadedEvent((obj, eventArgs) -> {
+            System.out.println("Loaded: " + eventArgs.handled);
+        });
+
+        mainMenu.reloadedEvent((obj, eventArgs) -> {
+            System.out.println("Reloaded: " + eventArgs.handled);
+        });
+
+        mainMenu.requestBringIntoViewEvent((obj, eventArgs) -> {
+            System.out.println("RequestBringIntoView: " + eventArgs.source_ptr);
+        });
+
+        playButton.sizeChangedEvent((obj, eventArgs) -> {
+            System.out.println("SizeChange: " + eventArgs.source_ptr);
+        });
+
+        mainMenu.toolTipOpeningEvent((obj, eventArgs) -> {
+            System.out.println("Opening: " + eventArgs.source_ptr);
+        });
+
+        mainMenu.toolTipClosingEvent((obj, eventArgs) -> {
+            System.out.println("Closening: " + eventArgs.source_ptr);
+        });
+
+        mainMenu.unloadedEvent((obj, eventArgs) -> {
+            System.out.println("Unloaded: " + eventArgs.source_ptr);
+        });
+
+        playButton.dataContextChangedEvent((obj, eventArgs) -> {
+            System.out.println("DataContextChanged: " + eventArgs.prop_ptr);
+        });
+
+        playButton.initializedEvent((obj) -> {
+            System.out.println("Initialize: " + obj.getClassType().getClassTypeName());
+        });
+
+        mainMenu.ancestorChangedEvent((element -> {
+            System.out.println("AncestorChangedEvent: " + element.getClassType().getClassTypeName());
+        }));
 
         // Здесь должен быть твой JNI-бинд:
         // - SetLogHandler

@@ -22,7 +22,7 @@ public class NSRoutedEventArgs extends NSEventArgs {
         this.handled = handled;
     }
 
-    public NSBaseComponent getSource() {
+    public final NSBaseComponent getSource() {
         if (source_ptr == 0)
             return null;
 
@@ -35,7 +35,7 @@ public class NSRoutedEventArgs extends NSEventArgs {
         return component;
     }
 
-    public NSRoutedEvent getRoutedEvent() {
+    public final NSRoutedEvent getRoutedEvent() {
         if (routedEvent_ptr == 0)
             return null;
 

@@ -17,8 +17,7 @@
 #include "NsGui/IView.h"
 
 void test() {
-
-
+    Noesis::FrameworkElement element;
 
 
 }

@@ -2,8 +2,7 @@ package dev.sixik.noesisgui.nsgui;
 
 import dev.sixik.noesisgui.nscore.*;
 import dev.sixik.noesisgui.nsdrawing.NSRect;
-
-import java.util.PrimitiveIterator;
+import dev.sixik.noesisgui.nshandlers.*;
 
 public class NSFrameworkElement extends NSUIElement{
 
@@ -685,6 +684,90 @@ public class NSFrameworkElement extends NSUIElement{
         return nConnectEvent(getPtr(), source.getPtr(), event, handler);
     }
 
+    /**
+     * Occurs just before any context menu on the element is closed
+     */
+    public final void contextMenuClosingEvent(final NSContextMenuEvent event) {
+        nContextMenuClosing(getPtr(), event);
+    }
+
+    /**
+     * Occurs when any context menu on the element is opened
+     */
+    public final void contextMenuOpeningEvent(final NSContextMenuEvent event) {
+        nContextMenuOpening(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the element is laid out, rendered, and ready for interaction
+     */
+    public final void loadedEvent(final NSRoutedEventHandler event) {
+        nLoaded(getPtr(), event);
+    }
+
+    /**
+     * Occurs when this element xaml gets reloaded as a result of a hot-reload operation
+     */
+    public final void reloadedEvent(final NSRoutedEventHandler event) {
+        nReloaded(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the element is removed from within an element tree of loaded elements
+     */
+    public final void unloadedEvent(final NSRoutedEventHandler event) {
+        nUnloaded(getPtr(), event);
+    }
+
+    /**
+     * Occurs when BringIntoView is called on this element
+     */
+    public final void requestBringIntoViewEvent(final NSRequestBringIntoViewEventHandler event) {
+        nRequestBringIntoView(getPtr(), event);
+    }
+
+    /**
+     * Occurs when either ActualHeight or ActualWidth properties change value on this element
+     */
+    public final void sizeChangedEvent(final NSSizeChangedEventHandler event) {
+        nSizeChanged(getPtr(), event);
+    }
+
+    /**
+     * Occurs when either ActualHeight or ActualWidth properties change value on this element
+     */
+    public final void toolTipClosingEvent(final NSToolTipEventHandler event) {
+        nToolTipClosing(getPtr(), event);
+    }
+
+    /**
+     * Occurs just before any tooltip on the element is closed
+     */
+    public final void toolTipOpeningEvent(final NSToolTipEventHandler event) {
+        nToolTipOpening(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the data context for this element changes
+     */
+    public final void dataContextChangedEvent(final NSDependencyPropertyChangedEventHandler event) {
+        nDataContextChanged(getPtr(), event);
+    }
+
+    /**
+     * Occurs when this element is initialized
+     */
+    public final void initializedEvent(final NSEventHandler event) {
+        nInitialized(getPtr(), event);
+    }
+
+    /**
+     * Notifies when an ancestor has changed its parent
+     */
+    public final void ancestorChangedEvent(final NSAncestorChangedDelegate event) {
+        nAncestorChanged(getPtr(), event);
+    }
+
     private static native int nGetFlowDirectionStatic(long objPtr);
 
     private static native void nSetFlowDirectionStatic(long objPtr, int flowDirection);
@@ -864,6 +947,30 @@ public class NSFrameworkElement extends NSUIElement{
     private static native boolean nConnectField(long ptr, long object_ptr, String name);
 
     private static native boolean nConnectEvent(long ptr, long source_ptr, String event, String name);
+
+    private static native void nContextMenuClosing(long ptr, NSContextMenuEvent closing);
+
+    private static native void nContextMenuOpening(long ptr, NSContextMenuEvent opening);
+
+    private static native void nLoaded(long ptr, NSRoutedEventHandler event);
+
+    private static native void nReloaded(long ptr, NSRoutedEventHandler event);
+
+    private static native void nUnloaded(long ptr, NSRoutedEventHandler event);
+
+    private static native void nRequestBringIntoView(long ptr, NSRequestBringIntoViewEventHandler event);
+
+    private static native void nSizeChanged(long ptr, NSSizeChangedEventHandler event);
+
+    private static native void nToolTipClosing(long ptr, NSToolTipEventHandler event);
+
+    private static native void nToolTipOpening(long ptr, NSToolTipEventHandler event);
+
+    private static native void nDataContextChanged(long ptr, NSDependencyPropertyChangedEventHandler event);
+
+    private static native void nInitialized(long ptr, NSEventHandler event);
+
+    private static native void nAncestorChanged(long ptr, NSAncestorChangedDelegate event);
 }
 
 

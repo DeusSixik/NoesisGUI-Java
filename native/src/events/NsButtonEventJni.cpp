@@ -45,14 +45,14 @@ Java_dev_sixik_noesisgui_nshandlers_NSEventHandlerManager_nativeSubscribeButtonC
         return;
     }
 
-    auto *data = new ClickCallbackData();
+    auto *data = new JavaRoutedEventHandler();
     data->handlerGlobal = env->NewGlobalRef(jHandler);
 
     jclass handlerClass = env->GetObjectClass(jHandler);
-    data->onClickMethod = env->GetMethodID(handlerClass, "onClick", "(Ldev/sixik/noesisgui/nsgui/NSRoutedEventArgs;)V");
+    data->handlerMethod = env->GetMethodID(handlerClass, "onClick", "(Ldev/sixik/noesisgui/nsgui/NSRoutedEventArgs;)V");
     env->DeleteLocalRef(handlerClass);
 
-    if (data->onClickMethod == nullptr) {
+    if (data->handlerMethod == nullptr) {
 
         env->DeleteGlobalRef(data->handlerGlobal);
         delete data;
@@ -84,7 +84,7 @@ Java_dev_sixik_noesisgui_nshandlers_NSEventHandlerManager_nativeSubscribeButtonC
         rg.routedEvent_ptr = reinterpret_cast<jlong>(args.routedEvent);
         rg.handled = args.handled;
 
-        env->CallVoidMethod(data->handlerGlobal, data->onClickMethod, data->args.CreateJavaObject(env));
+        env->CallVoidMethod(data->handlerGlobal, data->handlerMethod, data->args.Create(env));
 
         if (env->ExceptionCheck()) {
             env->ExceptionDescribe();

@@ -15,120 +15,118 @@
 #include "Render/GLRenderDevice/Include/NsRender/GLFactory.h"
 
 
-
 extern "C" {
-
-    JNIEXPORT void JNICALL
-    Java_dev_sixik_noesisgui_NoesisGui_nSetLicense(JNIEnv* env, jclass, jstring name, jstring key) {
-        const char *cstr = env->GetStringUTFChars(name, nullptr);
-        if (cstr == nullptr) {
-            return;
-        }
-
-        const char *cstr2 = env->GetStringUTFChars(key, nullptr);
-        if (cstr2 == nullptr) {
-            return;
-        }
-
-        Noesis::GUI::SetLicense(cstr, cstr2);
-        env->ReleaseStringUTFChars(name, cstr);
-        env->ReleaseStringUTFChars(key, cstr2);
+JNIEXPORT void JNICALL
+Java_dev_sixik_noesisgui_NoesisGui_nSetLicense(JNIEnv *env, jclass, jstring name, jstring key) {
+    const char *cstr = env->GetStringUTFChars(name, nullptr);
+    if (cstr == nullptr) {
+        return;
     }
 
-    JNIEXPORT void JNICALL
-    Java_dev_sixik_noesisgui_NoesisGui_nativeSetThemeProviders(JNIEnv* env, jclass) {
-        NoesisApp::SetThemeProviders();
+    const char *cstr2 = env->GetStringUTFChars(key, nullptr);
+    if (cstr2 == nullptr) {
+        return;
     }
 
-    JNIEXPORT void JNICALL
-    Java_dev_sixik_noesisgui_NoesisGui_nativeLoadApplicationResources(JNIEnv* env, jclass, jlong ptr) {
-        Noesis::GUI::LoadApplicationResources(*reinterpret_cast<Noesis::Uri *>(ptr));
-    }
+    Noesis::GUI::SetLicense(cstr, cstr2);
+    env->ReleaseStringUTFChars(name, cstr);
+    env->ReleaseStringUTFChars(key, cstr2);
+}
 
-    JNIEXPORT void JNICALL
-    Java_dev_sixik_noesisgui_NoesisGui_nativeInit(JNIEnv* env, jclass) {
-        Noesis::GUI::Init();
-    }
+JNIEXPORT void JNICALL
+Java_dev_sixik_noesisgui_NoesisGui_nativeSetThemeProviders(JNIEnv *env, jclass) {
+    NoesisApp::SetThemeProviders();
+}
 
-    JNIEXPORT void JNICALL
-    Java_dev_sixik_noesisgui_NoesisGui_nativeShutdown(JNIEnv* env, jclass) {
-        Noesis::GUI::Shutdown();
-    }
+JNIEXPORT void JNICALL
+Java_dev_sixik_noesisgui_NoesisGui_nativeLoadApplicationResources(JNIEnv *env, jclass, jlong ptr) {
+    Noesis::GUI::LoadApplicationResources(*reinterpret_cast<Noesis::Uri *>(ptr));
+}
 
-    JNIEXPORT jlong JNICALL
-Java_dev_sixik_noesisgui_NoesisGui_nativeCreateView(JNIEnv* env, jclass, jlong elementPtr) {
-        if (!elementPtr) return 0;
-        return reinterpret_cast<jlong>(Noesis::GUI::CreateView(reinterpret_cast<Noesis::FrameworkElement *>(elementPtr)).GiveOwnership());
-    }
+JNIEXPORT void JNICALL
+Java_dev_sixik_noesisgui_NoesisGui_nativeInit(JNIEnv *env, jclass) {
+    Noesis::GUI::Init();
+}
 
-    JNIEXPORT jlong JNICALL
-    Java_dev_sixik_noesisgui_NoesisGui_nativeParseXamlTheme(JNIEnv* env, jclass, jstring xamlCode) {
-        if (xamlCode == nullptr) return 0;
+JNIEXPORT void JNICALL
+Java_dev_sixik_noesisgui_NoesisGui_nativeShutdown(JNIEnv *env, jclass) {
+    Noesis::GUI::Shutdown();
+}
 
-        const char* nativeCode = env->GetStringUTFChars(xamlCode, nullptr);
-        if (!nativeCode) return 0;
+JNIEXPORT jlong JNICALL
+Java_dev_sixik_noesisgui_NoesisGui_nativeCreateView(JNIEnv *env, jclass, jlong elementPtr) {
+    if (!elementPtr) return 0;
+    return reinterpret_cast<jlong>(Noesis::GUI::CreateView(reinterpret_cast<Noesis::FrameworkElement *>(elementPtr)).
+        GiveOwnership());
+}
 
-        Noesis::Ptr<Noesis::ResourceDictionary> root;
-        try {
-            root = Noesis::GUI::ParseXaml<Noesis::ResourceDictionary>(nativeCode);
-        } catch (...) {
-            env->ReleaseStringUTFChars(xamlCode, nativeCode);
-            return 0;
-        }
+JNIEXPORT jlong JNICALL
+Java_dev_sixik_noesisgui_NoesisGui_nativeParseXamlTheme(JNIEnv *env, jclass, jstring xamlCode) {
+    if (xamlCode == nullptr) return 0;
 
+    const char *nativeCode = env->GetStringUTFChars(xamlCode, nullptr);
+    if (!nativeCode) return 0;
+
+    Noesis::Ptr<Noesis::ResourceDictionary> root;
+    try {
+        root = Noesis::GUI::ParseXaml<Noesis::ResourceDictionary>(nativeCode);
+    } catch (...) {
         env->ReleaseStringUTFChars(xamlCode, nativeCode);
-
-        Noesis::ResourceDictionary *ptr = root.GetPtr();
-        if (ptr != nullptr) {
-            ptr->AddReference();
-        }
-
-        return reinterpret_cast<jlong>(ptr);
+        return 0;
     }
 
+    env->ReleaseStringUTFChars(xamlCode, nativeCode);
 
-    JNIEXPORT jlong JNICALL
-    Java_dev_sixik_noesisgui_NoesisGui_nativeParseXaml(JNIEnv* env, jclass, jstring xamlCode) {
-        if (xamlCode == nullptr) return 0;
+    Noesis::ResourceDictionary *ptr = root.GetPtr();
+    if (ptr != nullptr) {
+        ptr->AddReference();
+    }
 
-        const char* nativeCode = env->GetStringUTFChars(xamlCode, nullptr);
-        if (!nativeCode) return 0;
+    return reinterpret_cast<jlong>(ptr);
+}
 
-        Noesis::Ptr<Noesis::BaseComponent> root;
-        try {
-            root = Noesis::GUI::ParseXaml(nativeCode);
-        } catch (...) {
-            env->ReleaseStringUTFChars(xamlCode, nativeCode);
-            return 0;
-        }
 
+JNIEXPORT jlong JNICALL
+Java_dev_sixik_noesisgui_NoesisGui_nativeParseXaml(JNIEnv *env, jclass, jstring xamlCode) {
+    if (xamlCode == nullptr) return 0;
+
+    const char *nativeCode = env->GetStringUTFChars(xamlCode, nullptr);
+    if (!nativeCode) return 0;
+
+    Noesis::Ptr<Noesis::BaseComponent> root;
+    try {
+        root = Noesis::GUI::ParseXaml(nativeCode);
+    } catch (...) {
         env->ReleaseStringUTFChars(xamlCode, nativeCode);
+        return 0;
+    }
 
-        Noesis::BaseComponent* ptr = root.GetPtr();
-        if (ptr != nullptr) {
-            // Увеличиваем refcount, чтобы объект жил после уничтожения Ptr
-            ptr->AddReference();
-        }
+    env->ReleaseStringUTFChars(xamlCode, nativeCode);
 
-
-        // root выходит из области видимости -> Release() -> refcount--,
-        // но мы только что сделали AddReference(), так что объект остаётся жив.
-        return reinterpret_cast<jlong>(ptr);
+    Noesis::BaseComponent *ptr = root.GetPtr();
+    if (ptr != nullptr) {
+        // Увеличиваем refcount, чтобы объект жил после уничтожения Ptr
+        ptr->AddReference();
     }
 
 
-    struct NsLogHandler {
-        jobject handlerGlobal = nullptr;
-        jmethodID onLogMethod = nullptr;
-    };
+    // root выходит из области видимости -> Release() -> refcount--,
+    // но мы только что сделали AddReference(), так что объект остаётся жив.
+    return reinterpret_cast<jlong>(ptr);
+}
+
+
+struct NsLogHandler {
+    jobject handlerGlobal = nullptr;
+    jmethodID onLogMethod = nullptr;
+};
 
 static NsLogHandler g_logHandler;
 
 JNIEXPORT void JNICALL
 Java_dev_sixik_noesisgui_NoesisGui_nSetLogHandler(
-        JNIEnv* env, jclass,
-        jobject jHandler) {
-
+    JNIEnv *env, jclass,
+    jobject jHandler) {
     // 1. Убиваем старый глобальный ref (если был)
     if (g_logHandler.handlerGlobal != nullptr) {
         env->DeleteGlobalRef(g_logHandler.handlerGlobal);
@@ -163,19 +161,19 @@ Java_dev_sixik_noesisgui_NoesisGui_nSetLogHandler(
     g_logHandler.onLogMethod = onLogMethod;
 
     // 2. Ставим log handler
-    Noesis::GUI::SetLogHandler([](const char* file,
+    Noesis::GUI::SetLogHandler([](const char *file,
                                   uint32_t line,
                                   uint32_t level,
-                                  const char* channel,
-                                  const char* msg) {
+                                  const char *channel,
+                                  const char *msg) {
         if (NoesisJava::g_vm == nullptr) return;
 
-        JNIEnv* env = nullptr;
+        JNIEnv *env = nullptr;
         bool attached = false;
 
-        jint res = NoesisJava::g_vm->GetEnv(reinterpret_cast<void**>(&env), JNI_VERSION_1_8);
+        jint res = NoesisJava::g_vm->GetEnv(reinterpret_cast<void **>(&env), JNI_VERSION_1_8);
         if (res == JNI_EDETACHED) {
-            if (NoesisJava::g_vm->AttachCurrentThread(reinterpret_cast<void**>(&env), nullptr) != JNI_OK) {
+            if (NoesisJava::g_vm->AttachCurrentThread(reinterpret_cast<void **>(&env), nullptr) != JNI_OK) {
                 return;
             }
             attached = true;
@@ -191,9 +189,9 @@ Java_dev_sixik_noesisgui_NoesisGui_nSetLogHandler(
             return;
         }
 
-        jstring jFile    = env->NewStringUTF(file    ? file    : "");
+        jstring jFile = env->NewStringUTF(file ? file : "");
         jstring jChannel = env->NewStringUTF(channel ? channel : "");
-        jstring jMsg     = env->NewStringUTF(msg     ? msg     : "");
+        jstring jMsg = env->NewStringUTF(msg ? msg : "");
 
         env->CallVoidMethod(
             g_logHandler.handlerGlobal,

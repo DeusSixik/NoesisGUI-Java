@@ -4,6 +4,8 @@
 
 #include <jni.h>
 
+#include "../jni.h"
+#include "../events/NsWidgetEvents.h"
 #include "../utils/NSJniUtils.h"
 #include "NsGui/FrameworkElement.h"
 

@@ -5,6 +5,7 @@
 #ifndef NOESIS_JNI_NSJNIUTILS_H
 #define NOESIS_JNI_NSJNIUTILS_H
 #include <jni.h>
+#include <string>
 
 #include "NsDrawing/Int32Rect.h"
 #include "NsDrawing/Point.h"
@@ -560,6 +561,36 @@ public:
         env->SetLongField(javaClass, x, reinterpret_cast<jlong>(stats.object));
         env->SetLongField(javaClass, y, reinterpret_cast<jlong>(stats.scope));
         env->DeleteLocalRef(cls);
+    }
+
+    static jobject createJavaObject(JNIEnv* env, const std::string& className, jlong ptr) {
+        // Заменяем точки на слеши для JNI
+        std::string jniClassName = className;
+        for (char& c : jniClassName) {
+            if (c == '.') c = '/';
+        }
+
+        // Находим класс
+        jclass clazz = env->FindClass(jniClassName.c_str());
+        if (!clazz) {
+            // Можно добавить обработку ошибок
+            return nullptr;
+        }
+
+        // Находим конструктор <init>(J)
+        jmethodID constructor = env->GetMethodID(clazz, "<init>", "(J)V");
+        if (!constructor) {
+            env->DeleteLocalRef(clazz);
+            return nullptr;
+        }
+
+        // Создаем объект
+        jobject obj = env->NewObject(clazz, constructor, ptr);
+
+        // Освобождаем локальную ссылку на класс
+        env->DeleteLocalRef(clazz);
+
+        return obj;
     }
 };
 
