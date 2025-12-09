@@ -42,33 +42,59 @@ public:
                             const char* className,
                             const char* ctorSig,
                             ...) {
-        return createObject(env, className, "<init>", ctorSig);
+        va_list args;
+        va_start(args, ctorSig);
+        jobject obj = createObjectV(env, className, "<init>", ctorSig, args);
+        va_end(args);
+        return obj;
     }
 
     static jobject createObject(JNIEnv* env,
-                            const char* className,
-                            const char* methodName,
-                            const char* ctorSig,
-                            ...) {
-        const auto clz = env->FindClass(className);
+                                const char* className,
+                                const char* methodName,
+                                const char* sig,
+                                ...) {
+        va_list args;
+        va_start(args, sig);
+        jobject obj = createObjectV(env, className, methodName, sig, args);
+        va_end(args);
+        return obj;
+    }
+
+private:
+    static jobject createObjectV(JNIEnv* env,
+                                 const char* className,
+                                 const char* methodName,
+                                 const char* sig,
+                                 va_list args) {
+        jclass clz = env->FindClass(className);
         if (clz == nullptr) {
+            if (env->ExceptionCheck()) {
+                env->ExceptionDescribe();
+                env->ExceptionClear();
+            }
             return nullptr;
         }
 
-        const auto ctor = env->GetMethodID(clz, methodName, ctorSig);
+        jmethodID ctor = env->GetMethodID(clz, methodName, sig);
         if (ctor == nullptr) {
+            if (env->ExceptionCheck()) {
+                env->ExceptionDescribe();
+                env->ExceptionClear();
+            }
             env->DeleteLocalRef(clz);
             return nullptr;
         }
 
-        va_list args;
-        va_start(args, ctorSig);
-        const auto obj = env->NewObjectV(clz, ctor, args);
-        va_end(args);
+        jobject obj = env->NewObjectV(clz, ctor, args);
+
+        if (env->ExceptionCheck()) {
+            env->ExceptionDescribe();
+            env->ExceptionClear();
+            obj = nullptr;
+        }
 
         env->DeleteLocalRef(clz);
-
         return obj;
     }
-
 };

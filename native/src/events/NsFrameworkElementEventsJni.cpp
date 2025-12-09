@@ -16,7 +16,7 @@ struct JniEnvScope {
     bool attached = false;
 
     JniEnvScope(JavaVM* vm) {
-        jint res = vm->GetEnv((void**)&env, JNI_VERSION_1_8);
+        const jint res = vm->GetEnv((void**)&env, JNI_VERSION_1_8);
         if (res == JNI_EDETACHED) {
             if (vm->AttachCurrentThread((void**)&env, nullptr) == 0) {
                 attached = true;

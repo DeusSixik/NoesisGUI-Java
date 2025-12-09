@@ -15,4 +15,11 @@ public class PtrObject {
     protected void ptrClear() {
         ptr = 0;
     }
+
+    /**
+     * Check is nullptr
+     */
+    public final boolean isNullPtr()  {
+        return ptr == 0;
+    }
 }

@@ -275,9 +275,59 @@ public final class LwjglNoesisDemo {
             System.out.println("Initialize: " + obj.getClassType().getClassTypeName());
         });
 
+        playButton.gotFocusEvent((obj, event) -> {
+            System.out.println("Got Focus: " + event.getSource().getPtr() + " | " + obj.getPtr() + " | " + playButton.getPtr());
+        });
+
+        playButton.keyDownEvent((obj, args) -> {
+            System.out.println("Key Downd: " + args.getPtr());
+        });
+
+        mainMenu.gotMouseCaptureEvent((obj, event) -> {
+            System.out.println("Mouse: " + event.position + " | " + obj.getPtr() + " | " + playButton.getPtr());
+        });
+
+        mainMenu.gotKeyboardFocusEvent((obj, event) -> {
+            System.out.println("KeyBoard: " + event.getSource().getPtr() + " | " + obj.getPtr() + " | " + playButton.getPtr());
+        });
+
         mainMenu.ancestorChangedEvent((element -> {
             System.out.println("AncestorChangedEvent: " + element.getClassType().getClassTypeName());
         }));
+
+        playButton.mouseEnterEvent(((component, args) -> {
+            System.out.println("Enter: " + args.position);
+        }));
+
+        playButton.mouseLeaveEvent(((component, args) -> {
+            System.out.println("Leave: " + args.position);
+        }));
+//
+//        playButton.mouseWheelEvent(((component, args) -> {
+//            System.out.println("Whell: " + args.position);
+//        }));
+//
+//        playButton.queryCursorEvent(((component, args) -> {
+//            System.out.println("Query: " + args.position);
+//        }));
+
+        playButton.dragEnterEvent(((component, args) -> {
+            System.out.println("Drags!");
+        }));
+
+        playButton.dragOverEvent(((component, args) -> {
+            System.out.println("Drags!");
+        }));
+
+        playButton.dragLeaveEvent(((component, args) -> {
+            System.out.println("Drags!");
+        }));
+
+        playButton.dropEvent(((component, args) -> {
+            System.out.println("Drags!");
+        }));
+
+
 
         // Здесь должен быть твой JNI-бинд:
         // - SetLogHandler

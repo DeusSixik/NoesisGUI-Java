@@ -4,6 +4,9 @@ import dev.sixik.noesisgui.nscore.NSDependencyObject;
 import dev.sixik.noesisgui.nsdrawing.NSPoint;
 import dev.sixik.noesisgui.nsdrawing.NSRect;
 import dev.sixik.noesisgui.nsdrawing.NSSize;
+import dev.sixik.noesisgui.nshandlers.*;
+
+import java.nio.file.Files;
 
 public class NSUIElement extends NSVisual {
 
@@ -602,6 +605,384 @@ public class NSUIElement extends NSVisual {
         nativeGetArrangeConstraint(getPtr(), out);
     }
 
+    /**
+     * Occurs when this element gets logical focus
+     */
+    public final void gotFocusEvent(final NSRoutedEventHandler event) {
+        nGotFocus(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the keyboard is focused on this element
+     */
+    public final void gotKeyboardFocusEvent(final NSKeyboardFocusChangedEventHandler event) {
+        nGotKeyboardFocus(getPtr(), event);
+    }
+
+    /**
+     * Occurs when this element captures the mouse
+     */
+    public final void gotMouseCaptureEvent(final NSMouseEventHandler event) {
+        nGotMouseCapture(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a key is pressed while focus is on this element
+     */
+    public final void keyDownEvent(final NSKeyEventHandler event) {
+        nKeyDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a key is released while focus is on this element
+     */
+    public final void keyUpEvent(final NSKeyEventHandler event) {
+        nKeyUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the keyboard is no longer focused on this element
+     */
+    public final void lostKeyboardFocusEvent(final NSKeyboardFocusChangedEventHandler event) {
+        nLostKeyboardFocus(getPtr(), event);
+    }
+
+    /**
+     * Occurs when this element loses mouse capture
+     */
+    public final void lostMouseCaptureEvent(final NSMouseEventHandler event) {
+        nLostMouseCapture(getPtr(), event);
+    }
+
+    /**
+     * Occurs when any mouse button is pressed while the pointer is over this element
+     */
+    public final void mouseDownEvent(final NSMouseButtonEventHandler event) {
+        nMouseDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the mouse pointer enters the bounds of this element
+     */
+    public final void mouseEnterEvent(final NSMouseEventHandler event) {
+        nMouseEnter(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the mouse pointer leaves the bounds of this element
+     */
+    public final void mouseLeaveEvent(final NSMouseEventHandler event) {
+        nMouseLeave(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the left mouse button is pressed while the mouse pointer is over this element
+     */
+    public final void mouseLeftButtonDownEvent(final NSMouseButtonEventHandler event) {
+        nMouseLeftButtonDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the left mouse button is released while the mouse pointer is over this element
+     */
+    public final void mouseLeftButtonUpEvent(final NSMouseButtonEventHandler event) {
+        nMouseLeftButtonUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the mouse pointer moves while over this element
+     */
+    public final void mouseMoveEvent(final NSMouseEventHandler event) {
+        nMouseMove(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the right mouse button is pressed while the mouse pointer is over this element
+     */
+    public final void mouseRightButtonDownEvent(final NSMouseButtonEventHandler event) {
+        nMouseRightButtonDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the right mouse button is released while the mouse pointer is over this element
+     */
+    public final void mouseRightButtonUpEvent(final NSMouseButtonEventHandler event) {
+        nMouseRightButtonUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when any mouse button is released over this element
+     */
+    public final void mouseUpEvent(final NSMouseButtonEventHandler event) {
+        nMouseUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the user rotates the mouse wheel while the mouse pointer is over this element
+     */
+    public final void mouseWheelEvent(final NSMouseWheelEventHandler event) {
+        nMouseWheel(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a finger touches the screen while the finger is over this element
+     */
+    public final void touchDownEvent(final NSTouchEventHandler event) {
+        nTouchDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a finger moves on the screen while the finger is over this element
+     */
+    public final void touchMoveEvent(final NSTouchEventHandler event) {
+        nTouchMove(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a finger is raised off of the screen while the finger is over this element
+     */
+    public final void touchUpEvent(final NSTouchEventHandler event) {
+        nTouchUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a touch moves from outside to inside the bounds of this element
+     */
+    public final void touchEnterEvent(final NSTouchEventHandler event) {
+        nTouchEnter(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a touch moves from inside to outside the bounds of this element
+     */
+    public final void touchLeaveEvent(final NSTouchEventHandler event) {
+        nTouchLeave(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a touch is captured to this element
+     */
+    public final void gotTouchCaptureEvent(final NSTouchEventHandler event) {
+        nGotTouchCapture(getPtr(), event);
+    }
+
+    /**
+     * Occurs when this element loses a touch capture
+     */
+    public final void lostTouchCaptureEvent(final NSTouchEventHandler event) {
+        nLostTouchCapture(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a finger touches the screen while the finger is over this element
+     */
+    public final void previewTouchDownEvent(final NSTouchEventHandler event) {
+        nPreviewTouchDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a finger moves on the screen while the finger is over this element
+     */
+    public final void previewTouchMoveEvent(final NSTouchEventHandler event) {
+        nPreviewTouchMove(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a finger is raised off of the screen while the finger is over this element
+     */
+    public final void previewTouchUpEvent(final NSTouchEventHandler event) {
+        nPreviewTouchUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the keyboard is focused on this element
+     */
+    public final void previewGotKeyboardFocusEvent(final NSKeyboardFocusChangedEventHandler event) {
+        nPreviewGotKeyboardFocus(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a key is pressed while focus is on this element
+     */
+    public final void previewKeyDownEvent(final NSKeyEventHandler event) {
+        nPreviewKeyDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when a key is released while focus is on this element
+     */
+    public final void previewKeyUpEvent(final NSKeyEventHandler event) {
+        nPreviewKeyUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the keyboard is no longer focused on this element
+     */
+    public final void previewLostKeyboardFocusEvent(final NSKeyboardFocusChangedEventHandler event) {
+        nPreviewLostKeyboardFocus(getPtr(), event);
+    }
+
+    /**
+     * Occurs when any mouse button is pressed while the pointer is over this element
+     */
+    public final void previewMouseDownEvent(final NSMouseButtonEventHandler event) {
+        nPreviewMouseDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the left mouse button is pressed while the mouse pointer is over this element
+     */
+    public final void previewMouseLeftButtonDownEvent(final NSMouseButtonEventHandler event) {
+        nPreviewMouseLeftButtonDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the left mouse button is released while the mouse pointer is over this element
+     */
+    public final void previewMouseLeftButtonUpEvent(final NSMouseButtonEventHandler event) {
+        nPreviewMouseLeftButtonUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the mouse pointer moves while the mouse pointer is over this element
+     */
+    public final void previewMouseMoveEvent(final NSMouseEventHandler event) {
+        nPreviewMouseMove(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the right mouse button is pressed while the mouse pointer is over this element
+     */
+    public final void previewMouseRightButtonDownEvent(final NSMouseButtonEventHandler event) {
+        nPreviewMouseRightButtonDown(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the right mouse button is released while the mouse pointer is over this element
+     */
+    public final void previewMouseRightButtonUpEvent(final NSMouseButtonEventHandler event) {
+        nPreviewMouseRightButtonUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when any mouse button is released while the mouse pointer is over this element
+     */
+    public final void previewMouseUpEvent(final NSMouseButtonEventHandler event) {
+        nPreviewMouseUp(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the user rotates the mouse wheel while the mouse pointer is over this element
+     */
+    public final void previewMouseWheel(final NSMouseWheelEventHandler event) {
+        nPreviewMouseWheel(getPtr(), event);
+    }
+
+    /**
+     * Occurs when this element gets text in a device-independent manner
+     */
+    public final void previewTextInputEvent(final NSTextCompositionEventHandler event) {
+        nPreviewTextInput(getPtr(), event);
+    }
+
+    /**
+     * Occurs when the cursor is requested to display
+     */
+    public final void queryCursorEvent(final NSQueryCursorEventHandler event) {
+        nQueryCursor(getPtr(), event);
+    }
+
+    /**
+     * Occurs when this element gets text in a device-independent manner
+     */
+    public final void textInputEvent(final NSTextCompositionEventHandler event) {
+        nTextInputEvent(getPtr(), event);
+    }
+
+    /**
+     * Notifies source object of a dragging operation
+     */
+    public final void previewQueryContinueDragEvent(final NSQueryContinueDragEventHandler event) {
+        nPreviewQueryContinueDrag(getPtr(), event);
+    }
+
+    /**
+     * Notifies source object of a dragging operation
+     */
+    public final void queryContinueDragEvent(final NSQueryContinueDragEventHandler event) {
+        nQueryContinueDrag(getPtr(), event);
+    }
+
+    /**
+     * Notifies source object of a dragging operation to provide feedback to the user
+     */
+    public final void previewGiveFeedbackEvent(final NSGiveFeedbackEventHandler event) {
+        nPreviewGiveFeedback(getPtr(), event);
+    }
+
+    /**
+     * Notifies source object of a dragging operation to provide feedback to the user
+     */
+    public final void giveFeedbackEvent(final NSGiveFeedbackEventHandler event) {
+        nGiveFeedback(getPtr(), event);
+    }
+
+    /**
+     * Occurs when mouse enters the target of a dragging operation
+     */
+    public final void previewDragEnterEvent(final NSDragEventHandler event) {
+        nPreviewDragEnter(getPtr(), event);
+    }
+
+    /**
+     * Occurs when mouse enters the target of a dragging operation
+     */
+    public final void dragEnterEvent(final NSDragEventHandler event) {
+        nDragEnter(getPtr(), event);
+    }
+
+    /**
+     * Occurs when mouse is moved over the target of a dragging operation
+     */
+    public final void previewDragOverEvent(final NSDragEventHandler event) {
+        nPreviewDragOver(getPtr(), event);
+    }
+
+    /**
+     * Occurs when mouse is moved over the target of a dragging operation
+     */
+    public final void dragOverEvent(final NSDragEventHandler event) {
+        nDragOver(getPtr(), event);
+    }
+
+    /**
+     * Occurs when mouse leaves the target of a dragging operation
+     */
+    public final void previewDragLeaveEvent(final NSDragEventHandler event) {
+        nPreviewDragLeave(getPtr(), event);
+    }
+
+    /**
+     * Occurs when mouse leaves the target of a dragging operation
+     */
+    public final void dragLeaveEvent(final NSDragEventHandler event) {
+        nDragLeave(getPtr(), event);
+    }
+
+    /**
+     * Notifies target object of a dragging operation that data is being dropped
+     */
+    public final void previewDropEvent(final NSDragEventHandler event) {
+        nPreviewDrop(getPtr(), event);
+    }
+
+    /**
+     * Notifies target object of a dragging operation that data is being dropped
+     */
+    public final void dropEvent(final NSDragEventHandler event) {
+        nDrop(getPtr(), event);
+    }
+
     private static native boolean nativeGetAllowDrop(long ptr);
 
     private static native void nativeSetAllowDrop(long ptr, boolean value);
@@ -747,5 +1128,113 @@ public class NSUIElement extends NSVisual {
     private static native void nativeGetMeasureConstraint(long ptr, NSSize size);
 
     private static native void nativeGetArrangeConstraint(long ptr, NSRect rect);
+
+    private static native void nGotFocus(long ptr, NSRoutedEventHandler event);
+
+    private static native void nGotKeyboardFocus(long ptr, NSKeyboardFocusChangedEventHandler event);
+
+    private static native void nGotMouseCapture(long ptr, NSMouseEventHandler event);
+
+    private static native void nKeyDown(long ptr, NSKeyEventHandler event);
+
+    private static native void nKeyUp(long ptr, NSKeyEventHandler event);
+
+    private static native void nLostKeyboardFocus(long ptr, NSKeyboardFocusChangedEventHandler event);
+
+    private static native void nLostMouseCapture(long ptr, NSMouseEventHandler event);
+
+    private static native void nMouseDown(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nMouseLeave(long ptr, NSMouseEventHandler event);
+
+    private static native void nMouseEnter(long ptr, NSMouseEventHandler event);
+
+    private static native void nMouseLeftButtonDown(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nMouseLeftButtonUp(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nMouseMove(long ptr, NSMouseEventHandler event);
+
+    private static native void nMouseRightButtonDown(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nMouseRightButtonUp(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nMouseUp(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nMouseWheel(long ptr, NSMouseWheelEventHandler event);
+
+    private static native void nTouchDown(long ptr, NSTouchEventHandler event);
+
+    private static native void nTouchUp(long ptr, NSTouchEventHandler event);
+
+    private static native void nTouchMove(long ptr, NSTouchEventHandler event);
+
+    private static native void nTouchEnter(long ptr, NSTouchEventHandler event);
+
+    private static native void nTouchLeave(long ptr, NSTouchEventHandler event);
+
+    private static native void nGotTouchCapture(long ptr, NSTouchEventHandler event);
+
+    private static native void nLostTouchCapture(long ptr, NSTouchEventHandler event);
+
+    private static native void nPreviewTouchUp(long ptr, NSTouchEventHandler event);
+
+    private static native void nPreviewTouchDown(long ptr, NSTouchEventHandler event);
+
+    private static native void nPreviewTouchMove(long ptr, NSTouchEventHandler event);
+
+    private static native void nPreviewGotKeyboardFocus(long ptr, NSKeyboardFocusChangedEventHandler event);
+
+    private static native void nPreviewKeyDown(long ptr, NSKeyEventHandler event);
+
+    private static native void nPreviewKeyUp(long ptr, NSKeyEventHandler event);
+
+    private static native void nPreviewLostKeyboardFocus(long ptr, NSKeyboardFocusChangedEventHandler event);
+
+    private static native void nPreviewMouseDown(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nPreviewMouseLeftButtonDown(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nPreviewMouseLeftButtonUp(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nPreviewMouseMove(long ptr, NSMouseEventHandler event);
+
+    private static native void nPreviewMouseRightButtonDown(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nPreviewMouseRightButtonUp(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nPreviewMouseUp(long ptr, NSMouseButtonEventHandler event);
+
+    private static native void nPreviewMouseWheel(long ptr, NSMouseWheelEventHandler event);
+
+    private static native void nPreviewTextInput(long ptr, NSTextCompositionEventHandler event);
+
+    private static native void nQueryCursor(long ptr, NSQueryCursorEventHandler event);
+
+    private static native void nTextInputEvent(long ptr, NSTextCompositionEventHandler event);
+
+    private static native void nPreviewQueryContinueDrag(long ptr, NSQueryContinueDragEventHandler event);
+
+    private static native void nQueryContinueDrag(long ptr, NSQueryContinueDragEventHandler event);
+
+    private static native void nPreviewGiveFeedback(long ptr, NSGiveFeedbackEventHandler event);
+
+    private static native void nGiveFeedback(long ptr, NSGiveFeedbackEventHandler event);
+
+    private static native void nPreviewDragEnter(long ptr, NSDragEventHandler event);
+
+    private static native void nDragEnter(long ptr, NSDragEventHandler event);
+
+    private static native void nPreviewDragOver(long ptr, NSDragEventHandler event);
+
+    private static native void nDragOver(long ptr, NSDragEventHandler event);
+
+    private static native void nPreviewDragLeave(long ptr, NSDragEventHandler event);
+
+    private static native void nDragLeave(long ptr, NSDragEventHandler event);
+
+    private static native void nPreviewDrop(long ptr, NSDragEventHandler event);
+
+    private static native void nDrop(long ptr, NSDragEventHandler event);
 }
 

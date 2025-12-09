@@ -5,6 +5,7 @@
 #ifndef NOESIS_JNI_NSJNIUTILS_H
 #define NOESIS_JNI_NSJNIUTILS_H
 #include <jni.h>
+#include <optional>
 #include <string>
 
 #include "NsDrawing/Int32Rect.h"
@@ -29,6 +30,26 @@ namespace Noesis {
 
 class NSJniUtils {
 public:
+
+    template <typename CharT = jchar>
+    std::optional<std::pair<CharT, CharT>> ToUtf16(uint32_t codePoint) {
+        constexpr uint32_t kMaxCodePoint = 0x10FFFFu;
+        constexpr uint32_t kSurrogateHighStart = 0xD800u;
+        constexpr uint32_t kSurrogateLowStart = 0xDC00u;
+
+        if (codePoint > kMaxCodePoint || (codePoint >= kSurrogateHighStart && codePoint <= 0xDFFFu)) {
+            return std::nullopt;
+        }
+
+        if (codePoint < 0x10000u) {
+            auto single = static_cast<CharT>(codePoint);
+            return std::make_pair(single, CharT(0));
+        }
+
+        uint32_t lead = (codePoint - 0x10000u) / 0x400u + kSurrogateHighStart;
+        uint32_t trail = (codePoint - 0x10000u) % 0x400u + kSurrogateLowStart;
+        return std::make_pair(static_cast<CharT>(lead), static_cast<CharT>(trail));
+    }
 
     static void Int32RectToCopy(JNIEnv *env, Noesis::Int32Rect &src, const jobject dst) {
         const jclass cls = env->GetObjectClass(dst);
