@@ -14,7 +14,7 @@ namespace Noesis {
 }
 
 void test() {
-    Noesis::VisualBrush* linear_gradient_brush = new Noesis::VisualBrush();
+
 
 }
 

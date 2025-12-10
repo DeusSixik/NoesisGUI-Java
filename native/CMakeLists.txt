@@ -94,6 +94,9 @@ add_library(noesis_jni SHARED
         src/NsGui/NSTileBrushJni.cpp
         src/NsGui/NSVisualBrushJni.cpp
         src/NsGui/NSImageBrushJni.cpp
+        src/Render/NSGLRenderUtil.h
+        NoesisSDK/Packages/Render/GLRenderContext/Src/GLRenderContext.h
+        NoesisSDK/Packages/Render/GLRenderDevice/Src/GLRenderDevice.cpp
 )
 
 # Линкуемся по .lib
