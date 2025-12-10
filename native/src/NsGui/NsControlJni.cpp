@@ -77,8 +77,6 @@ namespace NoesisJava {
 
 extern "C" {
 
-
-
 static Noesis::Control *getComponent(JNIEnv *env, const jlong handle) {
     if (handle == 0) {
         jclass excCls = env->FindClass("java/lang/IllegalStateException");

@@ -80,6 +80,7 @@ add_library(noesis_jni SHARED
         src/events/NsFrameworkElementEventsJni.cpp
         src/events/NsUIElementEventsJni.cpp
         src/NsGui/NsControlJni.cpp
+        src/NsGui/NsContentControlJni.cpp
 )
 
 # Линкуемся по .lib
