@@ -2,9 +2,14 @@ import dev.sixik.noesisgui.NoesisGui;
 import dev.sixik.noesisgui.nsgui.*;
 import dev.sixik.noesisgui.nshandlers.NSEventHandlerManager;
 import dev.sixik.noesisgui_impl.NSThemes;
+import dev.sixik.noesisgui_ini.KeyValueParser;
 import dev.sixik.noesisgui_ini.NoesisGuiJava;
 import dev.sixik.noesisgui_render.gl.NSOpenGl;
 import org.lwjgl.opengl.GL;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static dev.sixik.noesisgui.nsgui.NSGui_MouseButton.MouseButton_Left;
 import static org.lwjgl.glfw.GLFW.*;
@@ -157,7 +162,16 @@ public final class LwjglNoesisDemo {
             System.out.println("[NOESIS] " + file + ":" + line + " [" + NoesisGui.getLogLevelName((int) level) + "] " + channel + " - " + message);
         }));
 
-//        NoesisGui.setLicense("GlobexCorporation", "0KrZJjrt2SYwlUcIzZMGor47iaWruwED83qFJSQR9QXgAKqQ");
+        Map<String, String> licences = new HashMap<>();
+
+        try {
+            licences = KeyValueParser.parseFile(".noesis_licence");
+        } catch (IOException e) {
+            System.out.println("Error parse Licence file: .noesis_licence");
+        }
+
+        if(!licences.isEmpty())
+            NoesisGui.setLicense(licences.get("NAME"), licences.get("KEY"));
 
         NoesisGui.init();
 
