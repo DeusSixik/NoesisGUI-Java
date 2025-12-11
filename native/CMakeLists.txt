@@ -118,6 +118,7 @@ add_library(noesis_jni SHARED
         src/NsGui/NSSliderJni.cpp
         src/NsGui/NSProgressBarJni.cpp
         src/NsGui/NSScrollBarJni.cpp
+        src/NsGui/NSTextBlockJni.cpp
 )
 
 # Линкуемся по .lib
