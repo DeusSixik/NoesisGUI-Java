@@ -4,6 +4,7 @@
 
 #include "NsGui/FrameworkElement.h"
 #include "NsGui/GradientBrush.h"
+#include "NsGui/GradientStopCollection.h"
 #include "NsGui/LinearGradientBrush.h"
 #include "NsGui/SolidColorBrush.h"
 #include "NsGui/TileBrush.h"
@@ -14,7 +15,8 @@ namespace Noesis {
 }
 
 void test() {
-
+    // auto *collection = new Noesis::GradientStopCollection();
+    // collection->Add()
 
 }
 

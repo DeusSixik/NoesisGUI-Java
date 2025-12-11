@@ -1,11 +1,13 @@
 package dev.sixik.noesisgui.nscore;
 
+import dev.sixik.noesisgui_impl.PtrSupport;
+
 import java.util.Objects;
 
 /**
  * Base class for all Noesis polymorphic objects
  */
-public class NSBaseObject {
+public class NSBaseObject implements PtrSupport {
 
     private final long ptr;
 

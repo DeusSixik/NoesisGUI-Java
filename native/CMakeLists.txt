@@ -97,6 +97,8 @@ add_library(noesis_jni SHARED
         src/Render/NSGLRenderUtil.h
         NoesisSDK/Packages/Render/GLRenderContext/Src/GLRenderContext.h
         NoesisSDK/Packages/Render/GLRenderDevice/Src/GLRenderDevice.cpp
+        src/NsGui/NSGradientStopCollectionJni.cpp
+        src/NsGui/NSGradientStopJni.cpp
 )
 
 # Линкуемся по .lib

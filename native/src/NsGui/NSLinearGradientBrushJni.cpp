@@ -19,7 +19,7 @@ static Noesis::LinearGradientBrush *getComponent(JNIEnv *env, const jlong handle
     return reinterpret_cast<Noesis::LinearGradientBrush *>(handle);
 }
 
-JNIEXPORT jlong JNICALL Java_dev_sixik_noesisgui_nsgui_NSGradientBrush_nCreate(JNIEnv* env, jclass) {
+JNIEXPORT jlong JNICALL Java_dev_sixik_noesisgui_nsgui_NSLinearGradientBrush_nCreate(JNIEnv* env, jclass) {
     return reinterpret_cast<jlong>(new Noesis::LinearGradientBrush());
 }
 

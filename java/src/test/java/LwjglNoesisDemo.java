@@ -1,4 +1,6 @@
 import dev.sixik.noesisgui.NoesisGui;
+import dev.sixik.noesisgui.nsdrawing.NSColor;
+import dev.sixik.noesisgui.nsdrawing.NSPoint;
 import dev.sixik.noesisgui.nsgui.*;
 import dev.sixik.noesisgui.nshandlers.NSEventHandlerManager;
 import dev.sixik.noesisgui_impl.NSThemes;
@@ -197,11 +199,28 @@ public final class LwjglNoesisDemo {
     }
 
     private static NSFrameworkElement createCode() {
+        NSRadialGradientBrush brush = new NSRadialGradientBrush();
+        brush.setCenter(new NSPoint(.5f, .5f));
+        brush.setGradientOrigin(new NSPoint(.5f, .5f));
+        brush.setRadiusY(.5f);
+        brush.setRadiusX(.5f);
+
+        NSGradientStopCollection stops = new NSGradientStopCollection();
+
+        NSGradientStop inner = new NSGradientStop(new NSColor(255, 255, 255, 255), 0);
+        stops.add(inner);
+
+        NSGradientStop outer = new NSGradientStop(new NSColor(255, 255, 255, 0), 1f);
+        stops.add(outer);
+        brush.setGradientStops(stops);
+
         NSGrid root = new NSGrid();
         root.setWidth(400f);
         root.setHeight(300f);
-        root.setBackground(NSBrushes.Red());
+        root.setBackground(brush);
         root.setMargin(new NSThickness(50, 0, 0, 10));
+
+
 
         return root;
     }
