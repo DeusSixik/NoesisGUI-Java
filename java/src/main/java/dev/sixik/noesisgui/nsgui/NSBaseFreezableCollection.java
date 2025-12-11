@@ -1,7 +1,5 @@
 package dev.sixik.noesisgui.nsgui;
 
-import dev.sixik.noesisgui.nscore.NSBaseComponent;
-
 public class NSBaseFreezableCollection extends NSAnimatable{
 
     public NSBaseFreezableCollection(long ptr) {

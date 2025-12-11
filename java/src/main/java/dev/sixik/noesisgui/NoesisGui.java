@@ -6,7 +6,6 @@ import dev.sixik.noesisgui.nscore.NSResourceDictionary;
 import dev.sixik.noesisgui.nscore.NSUri;
 import dev.sixik.noesisgui.nsgui.NSFrameworkElement;
 import dev.sixik.noesisgui.nsgui.NSIView;
-import dev.sixik.noesisgui.nsgui.NSUIElement;
 
 public class NoesisGui {
 

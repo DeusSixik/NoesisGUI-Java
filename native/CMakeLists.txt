@@ -114,6 +114,10 @@ add_library(noesis_jni SHARED
         src/NsGui/NSBaseTextBoxJni.cpp
         src/NsGui/NSTypographyJni.cpp
         src/NsGui/NSTextBoxJni.cpp
+        src/NsGui/NSRangeBaseJni.cpp
+        src/NsGui/NSSliderJni.cpp
+        src/NsGui/NSProgressBarJni.cpp
+        src/NsGui/NSScrollBarJni.cpp
 )
 
 # Линкуемся по .lib

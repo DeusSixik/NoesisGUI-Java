@@ -51,4 +51,16 @@ public class NoesisGuiWidgets {
     public static NSTextBox textBox() {
         return new NSTextBox();
     }
+
+    public static NSSlider slider() {
+        return new NSSlider();
+    }
+
+    public static NSProgressBar progressBar() {
+        return new NSProgressBar();
+    }
+
+    public static NSScrollBar scrollBar() {
+        return new NSScrollBar();
+    }
 }

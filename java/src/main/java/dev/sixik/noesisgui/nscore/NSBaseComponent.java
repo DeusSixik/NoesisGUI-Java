@@ -1,6 +1,5 @@
 package dev.sixik.noesisgui.nscore;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.function.Function;
 
 /**

@@ -10,6 +10,7 @@
 #include "NsDrawing/Rect.h"
 #include "NsGui/INotifyCollectionChanged.h"
 #include "NsGui/ItemContainerGenerator.h"
+#include "NsGui/ScrollBar.h"
 
 namespace NoesisJava {
     struct JavaDefault {
@@ -445,6 +446,44 @@ namespace NoesisJava {
         };
 
         JavaNSItemsChangedEventArgs args = {};
+    };
+
+    struct JavaNSRoutedPropertyChangedEventHandler : JavaMethodHandler {
+
+        struct JavaNSRoutedPropertyChangedEventArgs : JavaRoutedEventHandler::JavaNSRoutedEventArgs {
+
+        };
+
+        struct JavaNSRoutedPropertyChangedEventArgsFloat : JavaNSRoutedPropertyChangedEventArgs {
+
+            float oldValue = 0;
+            float newValue = 0;
+
+            jobject Create(JNIEnv *env) override {
+                return NSJavaUtils::createObject(env,
+                 "dev/sixik/noesisgui/nsgui/NSRoutedPropertyChangedEventArgsFloat",
+                 "(JJZFF)V", source_ptr, routedEvent_ptr, handled, oldValue, newValue);
+            }
+        };
+
+        JavaNSRoutedPropertyChangedEventArgs args = {};
+    };
+
+    struct JavaNSScrollEventHandler : JavaMethodHandler {
+        struct JavaNSScrollEventArgs : JavaRoutedEventHandler::JavaNSRoutedEventArgs {
+
+            float newValue;
+            Noesis::ScrollEventType scrollType;
+
+            jobject Create(JNIEnv *env) override {
+                return NSJavaUtils::createObject(env,
+                 "dev/sixik/noesisgui/nsgui/NSScrollEventArgs",
+                 "(JJZFI)V", source_ptr, routedEvent_ptr, handled, newValue, scrollType);
+            }
+
+        };
+
+        JavaNSScrollEventArgs args = {};
     };
 
     template <typename JavaArgsType>

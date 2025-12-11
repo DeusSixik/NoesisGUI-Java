@@ -38,7 +38,7 @@ public:
     void SetMaximum(float value);
     //@}
 
-    /// Gets or sets the Minimum possible Value of the range element
+    /// Geets or sets the Minimum possible Value of the range lement
     //@{
     float GetMinimum() const;
     void SetMinimum(float value);

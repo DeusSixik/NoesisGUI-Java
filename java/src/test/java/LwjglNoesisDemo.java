@@ -1,4 +1,5 @@
 import dev.sixik.noesisgui.NoesisGui;
+import dev.sixik.noesisgui.nscore.NSBaseComponent;
 import dev.sixik.noesisgui.nsdrawing.NSColor;
 import dev.sixik.noesisgui.nsdrawing.NSPoint;
 import dev.sixik.noesisgui.nsgui.*;
@@ -221,12 +222,14 @@ public final class LwjglNoesisDemo {
         root.setBackground(brush);
         root.setMargin(new NSThickness(50, 0, 0, 10));
 
-        final var textBox = NoesisGuiWidgets.textBox();
+        final var textBox = NoesisGuiWidgets.scrollBar();
         textBox.setWidth(128);
         textBox.setHeight(42);
 
-        textBox.setText("Fobos IS Best");
-        textBox.setSelectionBrush(NSBrushes.Red());
+
+        textBox.scrollEvent(((component, args) -> {
+            System.out.println(args.newValue);
+        }));
 
         root.getChildren().add(textBox);
 

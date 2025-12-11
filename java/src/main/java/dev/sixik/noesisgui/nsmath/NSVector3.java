@@ -1,7 +1,5 @@
 package dev.sixik.noesisgui.nsmath;
 
-import dev.sixik.noesisgui.nsmath.NSVector2;
-
 import java.util.Objects;
 
 public final class NSVector3 {
