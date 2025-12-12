@@ -71,4 +71,16 @@ public class NoesisGuiWidgets {
     public static NSScrollBar scrollBar() {
         return new NSScrollBar();
     }
+
+    public static NSItemsControl itemsControl() {
+        return new NSItemsControl();
+    }
+
+    public static NSTreeView treeView() {
+        return new NSTreeView();
+    }
+
+    public static NSContextMenu contextMenu() {
+        return new NSContextMenu();
+    }
 }

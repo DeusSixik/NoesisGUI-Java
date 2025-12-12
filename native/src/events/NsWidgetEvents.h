@@ -455,6 +455,26 @@ namespace NoesisJava {
 
         };
 
+        struct JavaNSRoutedPropertyChangedEventArgsLong : JavaNSRoutedPropertyChangedEventArgs {
+
+            long oldValue = 0;
+            long newValue = 0;
+
+            jobject Create(JNIEnv *env) override {
+                return NSJavaUtils::createObject(env,
+                 "dev/sixik/noesisgui/nsgui/NSRoutedPropertyChangedEventArgsLong",
+                 "(JJZJJ)V", source_ptr, routedEvent_ptr, handled, oldValue, newValue);
+            }
+        };
+
+        struct JavaNSRoutedPropertyChangedEventArgsBaseComponent : JavaNSRoutedPropertyChangedEventArgsLong {
+            jobject Create(JNIEnv *env) override {
+                return NSJavaUtils::createObject(env,
+                 "dev/sixik/noesisgui/nsgui/NSRoutedPropertyChangedEventArgsBaseComponent",
+                 "(JJZJJ)V", source_ptr, routedEvent_ptr, handled, oldValue, newValue);
+            }
+        };
+
         struct JavaNSRoutedPropertyChangedEventArgsFloat : JavaNSRoutedPropertyChangedEventArgs {
 
             float oldValue = 0;

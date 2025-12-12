@@ -136,6 +136,10 @@ add_library(noesis_jni SHARED
         src/NsGui/NSRunJni.cpp
         src/NsGui/NSInlineUIContainerJni.cpp
         src/NsGui/NSLineBreakJni.cpp
+        src/NsGui/NSItemsControlJni.cpp
+        src/NsGui/NSTreeViewJni.cpp
+        src/NsGui/NSContextMenuJni.cpp
+        src/NsGui/NSMenuJni.cpp
 )
 
 # Линкуемся по .lib

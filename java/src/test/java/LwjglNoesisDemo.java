@@ -253,15 +253,32 @@ public final class LwjglNoesisDemo {
         root.setBackground(brush);
         root.setMargin(new NSThickness(50, 0, 0, 10));
 
-        final NSTextBlock block = new NSTextBlock();
-        block.getInlines().ad
+        final NSTextBlock tb = new NSTextBlock();
 
-        final NSHyperlink hyperlink = new NSHyperlink();
-        hyperlink.setTargetName("Fobos Target");
-        hyperlink.setNavigateUri("Fobos Uri");
-        hyperlink.setWidth(100);
+        final var lint = new NSHyperlink();
+        lint.setNavigateUri("https://example.com");
 
-        root.getChildren().add(hyperlink);
+        final var run = new NSRun();
+        run.setText("Open website ");
+
+        final var list = tb.getInlines();
+        lint.getInlines().add(run);
+
+        {
+            var r1 = new NSRun(); r1.setText("Go to");
+            var r2 = new NSRun(); r2.setText("!");
+
+            list.add(r1);
+            list.add(lint);
+            list.add(r2);
+        }
+
+        lint.requestNavigateEvent(((component, args) -> {
+            System.out.println(args.uri);
+        }));
+
+        tb.setBackground(NSBrushes.Red());
+        root.getChildren().add(tb);
 
         return root;
     }
