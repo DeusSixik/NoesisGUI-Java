@@ -11,7 +11,7 @@
 #include <NsCore/Noesis.h>
 #include <NsCore/ReflectionImplement.h>
 #include <NsGui/FreezableCollection.h>
-#include <NsApp/IAttachedObject.h>
+#include <App/Interactivity/Include/NsApp/IAttachedObject.h>
 
 
 namespace NoesisApp

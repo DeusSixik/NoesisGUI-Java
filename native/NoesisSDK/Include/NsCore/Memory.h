@@ -8,7 +8,7 @@
 #define __CORE_MEMORY_H__
 
 
-#include <stdint.h>
+#include <cstdint>
 #include <NsCore/KernelApi.h>
 
 

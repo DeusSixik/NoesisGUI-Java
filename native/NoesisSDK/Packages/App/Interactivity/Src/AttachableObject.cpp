@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <NsApp/AttachableObject.h>
+#include <App/Interactivity/Include/NsApp/AttachableObject.h>
 #include <NsCore/ReflectionImplement.h>
 #include <NsGui/IUITreeNode.h>
 #include <NsGui/IView.h>

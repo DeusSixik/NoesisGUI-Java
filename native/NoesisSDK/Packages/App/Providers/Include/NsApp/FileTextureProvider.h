@@ -10,7 +10,7 @@
 
 #include <NsCore/Noesis.h>
 #include <NsGui/TextureProvider.h>
-#include <NsApp/ProvidersApi.h>
+#include <App/Providers/Include/NsApp/ProvidersApi.h>
 
 
 namespace Noesis { class Stream; }

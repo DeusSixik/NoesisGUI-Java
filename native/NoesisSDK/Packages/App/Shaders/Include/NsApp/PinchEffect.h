@@ -8,10 +8,10 @@
 #define __APP_PINCHEFFECT_H__
 
 
-#include <NsApp/ShadersApi.h>
+#include <App/Shaders/Include/NsApp/ShadersApi.h>
 #include <NsGui/ShaderEffect.h>
 #include <NsDrawing/Point.h>
-#include <NsRender/RenderContext.h>
+#include <Render/RenderContext/Include/NsRender/RenderContext.h>
 
 
 namespace Noesis { class DependencyProperty; }

@@ -12,8 +12,8 @@
 #include <NsCore/BaseComponent.h>
 #include <NsCore/ReflectionDeclare.h>
 #include <NsCore/Delegate.h>
-#include <NsApp/ApplicationLauncherApi.h>
-#include <NsApp/CommandLine.h>
+#include <App/ApplicationLauncher/Include/NsApp/ApplicationLauncherApi.h>
+#include <App/Launcher/Include/NsApp/CommandLine.h>
 #include <NsGui/UIElementEvents.h>
 #include <NsGui/Uri.h>
 #include <NsGui/IUITreeNode.h>

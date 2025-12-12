@@ -12,7 +12,7 @@
 #include <NsCore/Vector.h>
 #include <NsCore/ArrayRef.h>
 #include <NsCore/Ptr.h>
-#include <NsApp/ProvidersApi.h>
+#include <App/Providers/Include/NsApp/ProvidersApi.h>
 #include <NsGui/CachedFontProvider.h>
 
 

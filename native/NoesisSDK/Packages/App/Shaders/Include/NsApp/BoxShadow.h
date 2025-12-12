@@ -8,7 +8,7 @@
 #define __APP_BOXSHADOW_H__
 
 
-#include <NsApp/ShadersApi.h>
+#include <App/Shaders/Include/NsApp/ShadersApi.h>
 #include <NsGui/FrameworkElement.h>
 
 

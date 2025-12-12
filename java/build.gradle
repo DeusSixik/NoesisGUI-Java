@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'dev.sixik'
-version = '1.0-pre-2'
+version = '1.0-pre-3'
 
 repositories {
     mavenCentral()

@@ -9,7 +9,7 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsApp/PropertyChangedTrigger.h>
+#include <App/Interactivity/Include/NsApp/PropertyChangedTrigger.h>
 #include <NsCore/ReflectionDeclareEnum.h>
 
 

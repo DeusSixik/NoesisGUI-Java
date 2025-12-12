@@ -111,6 +111,7 @@ JNIEXPORT void JNICALL Java_dev_sixik_noesisgui_nsgui_NSTileBrush_nSetViewport(J
 JNIEXPORT jint JNICALL Java_dev_sixik_noesisgui_nsgui_NSTileBrush_nGetViewportUnits(JNIEnv* env, jclass clazz, jlong ptr) {
     const auto component = getComponent(env, ptr);
     if (component == nullptr) return 0;
+    return component->GetViewportUnits();
 }
 
 JNIEXPORT void JNICALL Java_dev_sixik_noesisgui_nsgui_NSTileBrush_nSetViewportUnits(JNIEnv* env, jclass clazz, jlong ptr, jint value) {

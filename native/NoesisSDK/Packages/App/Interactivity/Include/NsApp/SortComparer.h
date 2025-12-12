@@ -12,7 +12,7 @@
 #include <NsCore/BaseComponent.h>
 #include <NsCore/Delegate.h>
 #include <NsCore/ReflectionDeclare.h>
-#include <NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
 #include <NsGui/Events.h>
 
 

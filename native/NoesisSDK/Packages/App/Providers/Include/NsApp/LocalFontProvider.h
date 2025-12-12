@@ -11,7 +11,7 @@
 
 #include <NsCore/Noesis.h>
 #include <NsGui/CachedFontProvider.h>
-#include <NsApp/ProvidersApi.h>
+#include <App/Providers/Include/NsApp/ProvidersApi.h>
 
 
 namespace NoesisApp

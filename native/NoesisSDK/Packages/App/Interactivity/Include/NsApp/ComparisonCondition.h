@@ -12,8 +12,8 @@
 #include <NsCore/ReflectionDeclare.h>
 #include <NsCore/ReflectionDeclareEnum.h>
 #include <NsCore/Ptr.h>
-#include <NsApp/InteractivityApi.h>
-#include <NsApp/DataTrigger.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/DataTrigger.h>
 #include <NsGui/Animatable.h>
 
 

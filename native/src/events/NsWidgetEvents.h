@@ -523,6 +523,20 @@ namespace NoesisJava {
         JavaNSRequestNavigateEventArgs args = {};
     };
 
+    struct JavaNSPropertyChangedEventHandler : JavaMethodHandler {
+        struct JavaNSPropertyChangedEventArgs : JavaNSEventHandler::JavaNSEventHandlerArgs {
+            Noesis::Symbol symbol;
+
+            jobject Create(JNIEnv *env) override {
+                return NSJavaUtils::createObject(env,
+                     "dev/sixik/noesisgui/nsgui/NSPropertyChangedEventArgs",
+                     "(Ljava/lang/String;)V", env->NewStringUTF(symbol.Str()));
+            }
+        };
+
+        JavaNSPropertyChangedEventArgs args = {};
+    };
+
     template <typename JavaArgsType>
     struct GenericEventHandler {
         jobject handlerGlobal = nullptr;

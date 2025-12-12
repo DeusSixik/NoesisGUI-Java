@@ -4,10 +4,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <NsApp/Application.h>
-#include <NsApp/Window.h>
-#include <NsApp/Display.h>
-#include <NsApp/DisplayLauncher.h>
+#include <App/ApplicationLauncher/Include/NsApp/Application.h>
+#include <App/ApplicationLauncher/Include/NsApp/Window.h>
+#include <App/Display/Include/NsApp/Display.h>
+#include <App/DisplayLauncher/Include/NsApp/DisplayLauncher.h>
 #include <NsGui/DependencyProperty.h>
 #include <NsGui/ResourceDictionary.h>
 #include <NsGui/IntegrationAPI.h>

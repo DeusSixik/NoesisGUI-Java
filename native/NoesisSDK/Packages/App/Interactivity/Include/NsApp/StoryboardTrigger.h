@@ -9,7 +9,7 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsApp/TriggerBase.h>
+#include <App/Interactivity/Include/NsApp/TriggerBase.h>
 
 
 namespace Noesis

@@ -8,10 +8,10 @@
 #define __APP_PLASMABRUSH_H__
 
 
-#include <NsApp/ShadersApi.h>
+#include <App/Shaders/Include/NsApp/ShadersApi.h>
 #include <NsGui/BrushShader.h>
 #include <NsDrawing/Point.h>
-#include <NsRender/RenderContext.h>
+#include <Render/RenderContext/Include/NsRender/RenderContext.h>
 
 
 namespace Noesis { class DependencyProperty; struct Point3D; }

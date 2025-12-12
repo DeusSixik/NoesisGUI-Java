@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public class NSBaseObject implements PtrSupport {
 
-    private final long ptr;
+    private long ptr;
 
     public NSBaseObject(long ptr) {
         this.ptr = ptr;
@@ -19,6 +19,9 @@ public class NSBaseObject implements PtrSupport {
         return ptr;
     }
 
+    public final void clearPtr() {
+        ptr = 0;
+    }
 
     /**
      * Check is nullptr

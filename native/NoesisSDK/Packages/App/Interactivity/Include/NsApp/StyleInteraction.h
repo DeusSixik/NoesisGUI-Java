@@ -10,9 +10,9 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/ReflectionDeclare.h>
-#include <NsApp/InteractivityApi.h>
-#include <NsApp/Behavior.h>
-#include <NsApp/TriggerBase.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/Behavior.h>
+#include <App/Interactivity/Include/NsApp/TriggerBase.h>
 #include <NsGui/FreezableCollection.h>
 
 

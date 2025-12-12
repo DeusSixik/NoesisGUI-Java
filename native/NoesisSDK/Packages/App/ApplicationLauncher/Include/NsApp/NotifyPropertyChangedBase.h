@@ -12,7 +12,7 @@
 #include <NsCore/BaseComponent.h>
 #include <NsCore/Delegate.h>
 #include <NsGui/INotifyPropertyChanged.h>
-#include <NsApp/ApplicationLauncherApi.h>
+#include <App/ApplicationLauncher/Include/NsApp/ApplicationLauncherApi.h>
 
 
 namespace NoesisApp

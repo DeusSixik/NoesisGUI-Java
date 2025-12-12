@@ -10,7 +10,7 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/ReflectionDeclareEnum.h>
-#include <NsApp/MediaElementApi.h>
+#include <App/MediaElement/Include/NsApp/MediaElementApi.h>
 #include <NsGui/FrameworkElement.h>
 #include <NsGui/Duration.h>
 #include <NsGui/TimeSpan.h>

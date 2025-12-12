@@ -9,9 +9,9 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsApp/InteractivityApi.h>
-#include <NsApp/TargetedTriggerAction.h>
-#include <NsApp/MediaElement.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/TargetedTriggerAction.h>
+#include <App/MediaElement/Include/NsApp/MediaElement.h>
 
 
 namespace NoesisApp

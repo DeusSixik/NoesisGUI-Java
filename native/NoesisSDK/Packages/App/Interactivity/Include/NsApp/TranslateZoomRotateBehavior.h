@@ -10,8 +10,8 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/ReflectionDeclare.h>
-#include <NsApp/InteractivityApi.h>
-#include <NsApp/Behavior.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/Behavior.h>
 #include <NsGui/FrameworkElement.h>
 #include <NsGui/UIElementEvents.h>
 #include <NsDrawing/Point.h>

@@ -8,10 +8,10 @@
 #define __APP_MONOCHROMEBRUSH_H__
 
 
-#include <NsApp/ShadersApi.h>
+#include <App/Shaders/Include/NsApp/ShadersApi.h>
 #include <NsGui/BrushShader.h>
 #include <NsDrawing/Color.h>
-#include <NsRender/RenderContext.h>
+#include <Render/RenderContext/Include/NsRender/RenderContext.h>
 
 
 namespace Noesis { class DependencyProperty; }

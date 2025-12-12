@@ -8,7 +8,7 @@
 #define __APP_STRINGFILTERPREDICATE_H__
 
 
-#include <NsApp/FilterPredicate.h>
+#include <App/Interactivity/Include/NsApp/FilterPredicate.h>
 #include <NsCore/String.h>
 
 

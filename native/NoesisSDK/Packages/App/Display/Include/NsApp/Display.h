@@ -9,7 +9,7 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsApp/DisplayApi.h>
+#include <App/Display/Include/NsApp/DisplayApi.h>
 #include <NsCore/BaseComponent.h>
 #include <NsCore/Delegate.h>
 #include <NsCore/ReflectionDeclare.h>

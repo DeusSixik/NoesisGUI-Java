@@ -11,7 +11,7 @@
 #include <NsCore/Noesis.h>
 #include <NsCore/BaseComponent.h>
 #include <NsCore/Delegate.h>
-#include <NsApp/MediaElementApi.h>
+#include <App/MediaElement/Include/NsApp/MediaElementApi.h>
 
 
 namespace Noesis

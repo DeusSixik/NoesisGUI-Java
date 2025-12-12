@@ -11,7 +11,7 @@
 #include <NsCore/Noesis.h>
 #include <NsCore/ReflectionDeclare.h>
 #include <NsCore/ReflectionDeclareEnum.h>
-#include <NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
 #include <NsGui/Animatable.h>
 
 

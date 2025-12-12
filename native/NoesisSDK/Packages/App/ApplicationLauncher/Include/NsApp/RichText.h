@@ -10,7 +10,7 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/ReflectionDeclare.h>
-#include <NsApp/ApplicationLauncherApi.h>
+#include <App/ApplicationLauncher/Include/NsApp/ApplicationLauncherApi.h>
 
 
 namespace Noesis

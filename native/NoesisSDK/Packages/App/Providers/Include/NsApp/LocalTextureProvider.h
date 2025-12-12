@@ -9,7 +9,7 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsApp/FileTextureProvider.h>
+#include <App/Providers/Include/NsApp/FileTextureProvider.h>
 
 
 class ProviderFileWatcher;

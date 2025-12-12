@@ -10,7 +10,7 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/Delegate.h>
-#include <NsApp/AttachableObject.h>
+#include <App/Interactivity/Include/NsApp/AttachableObject.h>
 #include <NsGui/Events.h>
 
 

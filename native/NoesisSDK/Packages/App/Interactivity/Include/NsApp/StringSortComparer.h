@@ -8,7 +8,7 @@
 #define __APP_STRINGSORTCOMPARER_H__
 
 
-#include <NsApp/SortComparer.h>
+#include <App/Interactivity/Include/NsApp/SortComparer.h>
 #include <NsCore/String.h>
 
 

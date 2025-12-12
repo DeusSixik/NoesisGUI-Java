@@ -4,6 +4,7 @@
 
 #include "NsGui/ContextMenu.h"
 #include "NsGui/FrameworkElement.h"
+#include "NsGui/IntegrationAPI.h"
 
 namespace Noesis {
     class VisualBrush;

@@ -6,12 +6,12 @@
 
 #include <NsCore/Package.h>
 #include <NsCore/EnumConverter.h>
-#include <NsApp/Application.h>
-#include <NsApp/Window.h>
-#include <NsApp/MessageBox.h>
-#include <NsApp/RichText.h>
-#include <NsApp/LocExtension.h>
-#include <NsApp/EmbeddedXamlProvider.h>
+#include <App/ApplicationLauncher/Include/NsApp/Application.h>
+#include <App/ApplicationLauncher/Include/NsApp/Window.h>
+#include <App/ApplicationLauncher/Include/NsApp/MessageBox.h>
+#include <App/ApplicationLauncher/Include/NsApp/RichText.h>
+#include <App/ApplicationLauncher/Include/NsApp/LocExtension.h>
+#include <App/Providers/Include/NsApp/EmbeddedXamlProvider.h>
 #include <NsGui/IntegrationAPI.h>
 
 #include "generic.xaml.bin.h"

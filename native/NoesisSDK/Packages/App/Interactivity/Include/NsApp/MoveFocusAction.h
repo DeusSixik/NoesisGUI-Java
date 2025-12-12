@@ -10,8 +10,8 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/ReflectionDeclareEnum.h>
-#include <NsApp/InteractivityApi.h>
-#include <NsApp/TriggerAction.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/TriggerAction.h>
 #include <NsGui/UIElement.h>
 
 

@@ -9,8 +9,8 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsApp/InteractivityApi.h>
-#include <NsApp/TargetedTriggerAction.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/TargetedTriggerAction.h>
 #include <NsGui/FrameworkElement.h>
 
 

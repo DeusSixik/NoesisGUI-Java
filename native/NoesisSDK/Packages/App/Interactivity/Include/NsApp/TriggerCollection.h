@@ -9,9 +9,9 @@
 
 
 #include <NsCore/Noesis.h>
-#include <NsApp/InteractivityApi.h>
-#include <NsApp/AttachableCollection.h>
-#include <NsApp/TriggerBase.h>
+#include <App/Interactivity/Include/NsApp/InteractivityApi.h>
+#include <App/Interactivity/Include/NsApp/AttachableCollection.h>
+#include <App/Interactivity/Include/NsApp/TriggerBase.h>
 
 
 namespace NoesisApp

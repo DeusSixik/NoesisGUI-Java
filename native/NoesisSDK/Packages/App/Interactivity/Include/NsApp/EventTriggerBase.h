@@ -10,7 +10,7 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/Delegate.h>
-#include <NsApp/TriggerBase.h>
+#include <App/Interactivity/Include/NsApp/TriggerBase.h>
 #include <NsGui/Events.h>
 
 

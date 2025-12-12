@@ -10,7 +10,7 @@
 
 #include <NsCore/Noesis.h>
 #include <NsCore/String.h>
-#include <NsApp/RiveBaseApi.h>
+#include <App/RiveBase/Include/NsApp/RiveBaseApi.h>
 #include <NsGui/FrameworkElement.h>
 #include <NsMath/Transform.h>
 

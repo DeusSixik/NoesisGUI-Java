@@ -4,7 +4,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-#include <NsApp/NotifyPropertyChangedBase.h>
+#include <App/ApplicationLauncher/Include/NsApp//NotifyPropertyChangedBase.h>
 #include <NsCore/ReflectionImplement.h>
 
 
